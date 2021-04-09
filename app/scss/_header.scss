@@ -1,4 +1,6 @@
 .header {
+  // position: relative;
+
   &.open {
     .header__menu-toggle {
       > span:first-child {
@@ -16,9 +18,8 @@
   }
 
   &__overlay {
-    visibility: hidden;
     position: fixed;
-    top: 3.75rem;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
@@ -26,7 +27,9 @@
   }
 
   nav {
-    padding: 1.0625rem 1.5rem;
+    position: relative;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
     background-color: $white;
     overflow: hidden;
   }
@@ -115,5 +118,43 @@
     &:hover {
       opacity: 0.75;
     }
+  }
+
+  &__menu {
+    position: absolute;
+    margin-top: 1.5rem;
+    padding: 1.625rem;
+    width: calc(100% - 3rem);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    background-color: $white;
+
+    a {
+      display: block;
+      padding: 0.625rem;
+      text-align: center;
+      font: {
+        size: $font-sm;
+        weight: 400;
+      }
+      color: $grayishBlue;
+      transition: color 0.1s ease-in-out;
+
+      &:focus,
+      &:hover {
+        color: $darkBlue;
+      }
+
+      &:focus {
+        outline: 1px solid $limeGreen;
+      }
+
+      &:active {
+        color: $limeGreen;
+      }
+    }
+    
+    
   }
 }
